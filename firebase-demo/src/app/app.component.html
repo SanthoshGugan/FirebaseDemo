@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,5 +16,27 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
+<table>
+  <caption>Firebase Database</caption>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let course of courses| async">
+      <td>{{course.title}}</td>
+      <td>{{course.auth}}</td>
+    </tr>
+  </tbody>
+</table>
 
+<div class="addCourse">
+  <label for="title">Title</label>
+  <input type="text" name="title" [formControl] = "title">
+  <label for="auth">Author</label>
+  <input type="text" name="auth" [formControl] = "auth">
+  <button type="button" (click) = "addCourse()">Add</button>
+</div>
